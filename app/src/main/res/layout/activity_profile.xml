@@ -1,0 +1,162 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F2E6F4">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cLInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/linearLayoutUsernameEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:backgroundTint="#F8DAF8"
+            android:textColorLink="#FFFFFF"
+            app:icon="?attr/homeAsUpIndicator"
+            app:iconTint="@android:color/black"/>
+
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Perfil"
+            android:textSize="28sp"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/headerSeparator"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/cLInfo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Foto de perfil -->
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgProfile"
+        android:layout_width="160dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="10dp"
+        app:layout_constraintDimensionRatio="H,1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cLInfo"
+        app:shapeAppearanceOverlay="@style/CircleImageView"
+        />
+
+    <!-- Nombre de usuario y botón editar -->
+    <LinearLayout
+        android:id="@+id/linearLayoutUsernameEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@id/imgProfile"
+        app:layout_constraintTop_toTopOf="@id/imgProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center_vertical">
+
+        <!-- Nombre de usuario -->
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username: @usuario"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Botón de editar -->
+        <Button
+            android:id="@+id/btnEditUser"
+            android:layout_width="208dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="25dp"
+            android:text="Editar Usuario" />
+    </LinearLayout>
+
+    <!-- Nombre real -->
+    <TextView
+        android:id="@+id/tvRealName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre real: Juan Pérez"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutUsernameEdit"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Correo -->
+    <TextView
+        android:id="@+id/tvCorreo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email: correo@email.com"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/tvRealName"
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Etiqueta patologías -->
+    <TextView
+        android:id="@+id/tvPathologyLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Patologías:"
+        android:layout_marginTop="14dp"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/tvCorreo" />
+
+    <!-- Contenedor dinámico para patologías -->
+    <LinearLayout
+        android:id="@+id/linearLayoutPatologias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        android:paddingStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tvPathologyLabel" />
+
+    <!-- Botón cerrar sesión -->
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:backgroundTint="@color/design_default_color_error"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutPatologias"
+        android:layout_marginTop="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
